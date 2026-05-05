@@ -12,6 +12,9 @@
 .menu-sidebar {
   width: 228px;
   flex-shrink: 0;
+  position: sticky;
+  top: 120px;
+  height: fit-content;
 }
 
 .menu-sidebar h2 {

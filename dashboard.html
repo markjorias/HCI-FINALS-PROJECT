@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Half Shot Coffee</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <img src="assets/images/brand/LOGO-LONG-WHITE.png" alt="Half Shot Cafe Logo" class="sidebar-logo">
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="nav-item active" data-target="menu-management">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Today's Menu</span>
+          </li>
+          <li class="nav-item" data-target="order-management">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <span>Current Orders</span>
+          </li>
+          <li class="nav-item" data-target="feature-management">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>Feature Management</span>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="avatar">A</div>
+          <div class="user-details">
+            <span class="user-name">Admin</span>
+            <span class="user-role">Store Manager</span>
+          </div>
+        </div>
+        <a href="index.html" class="logout-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span>Exit</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <header class="dashboard-header">
+        <h1 id="page-title">Today's Menu</h1>
+        <div class="header-actions">
+          <button id="add-item-btn" class="btn btn-primary btn-sm">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Add New Item
+          </button>
+        </div>
+      </header>
+
+      <div class="dashboard-content-wrapper">
+        <!-- Menu Management Section -->
+        <section id="menu-management" class="content-section active">
+        <div class="table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="menu-items-table">
+              <!-- Dynamically populated -->
+              <tr>
+                <td class="col-img"><img src="https://via.placeholder.com/50" alt="Item"></td>
+                <td>Hazelnut Latte</td>
+                <td class="col-desc">Smooth and nutty latte...</td>
+                <td>PHP 100.00</td>
+                <td>Non-Coffee</td>
+                <td class="col-actions">
+                  <button class="edit-btn">Edit</button>
+                  <button class="delete-btn">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Order Management Section -->
+      <section id="order-management" class="content-section">
+        <div class="order-grid">
+          <!-- Dynamically populated -->
+          <div class="order-admin-card">
+            <div class="order-header">
+              <span class="order-id">#ORD-001</span>
+              <span class="order-status status-pending">Received</span>
+            </div>
+            <div class="order-body">
+              <p><strong>Customer:</strong> John Doe</p>
+              <p><strong>Items:</strong> 1x Matcha Latte, 2x Espresso</p>
+              <p class="order-total">Total: PHP 350.00</p>
+            </div>
+            <div class="order-actions">
+              <button class="status-btn btn-confirm">Confirm</button>
+              <button class="status-btn btn-preparing">Preparing</button>
+              <button class="status-btn btn-ready">Ready</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Management Section -->
+      <section id="feature-management" class="content-section">
+        <div class="feature-grid">
+          <!-- Bestsellers -->
+          <div class="feature-card">
+            <h3>Bestsellers (Choose 3)</h3>
+            <div class="feature-selectors">
+              <div class="form-group">
+                <label>Bestseller 1</label>
+                <select class="feature-select" data-section="bestseller" data-index="0"></select>
+              </div>
+              <div class="form-group">
+                <label>Bestseller 2</label>
+                <select class="feature-select" data-section="bestseller" data-index="1"></select>
+              </div>
+              <div class="form-group">
+                <label>Bestseller 3</label>
+                <select class="feature-select" data-section="bestseller" data-index="2"></select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Our Snacks -->
+          <div class="feature-card">
+            <h3>Our Snacks (Choose 3)</h3>
+            <div class="feature-selectors">
+              <div class="form-group">
+                <label>Snack 1</label>
+                <select class="feature-select" data-section="snacks" data-index="0"></select>
+              </div>
+              <div class="form-group">
+                <label>Snack 2</label>
+                <select class="feature-select" data-section="snacks" data-index="1"></select>
+              </div>
+              <div class="form-group">
+                <label>Snack 3</label>
+                <select class="feature-select" data-section="snacks" data-index="2"></select>
+              </div>
+            </div>
+          </div>
+
+          <!-- More to Try -->
+          <div class="feature-card wide">
+            <h3>More to Try (Choose 4)</h3>
+            <div class="feature-selectors grid-4">
+              <div class="form-group">
+                <label>Item 1</label>
+                <select class="feature-select" data-section="more_to_try" data-index="0"></select>
+              </div>
+              <div class="form-group">
+                <label>Item 2</label>
+                <select class="feature-select" data-section="more_to_try" data-index="1"></select>
+              </div>
+              <div class="form-group">
+                <label>Item 3</label>
+                <select class="feature-select" data-section="more_to_try" data-index="2"></select>
+              </div>
+              <div class="form-group">
+                <label>Item 4</label>
+                <select class="feature-select" data-section="more_to_try" data-index="3"></select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-footer">
+          <button id="save-features-btn" class="btn btn-primary">Save Featured Changes</button>
+        </div>
+      </section>
+    </div>
+    </main>
+  </div>
+
+  <!-- Add/Edit Item Modal -->
+  <div id="item-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">Add Menu Item</h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <form id="item-form">
+        <input type="hidden" id="item-id">
+        <div class="form-group">
+          <label for="item-name">Name</label>
+          <input type="text" id="item-name" required>
+        </div>
+        <div class="form-group">
+          <label for="item-desc">Description</label>
+          <textarea id="item-desc" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="item-price">Price (PHP)</label>
+          <input type="number" id="item-price" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label for="item-category">Category</label>
+          <select id="item-category">
+            <option value="ICE COFFEE">ICE COFFEE</option>
+            <option value="HOT DRINKS">HOT DRINKS</option>
+            <option value="NON COFFEE">NON COFFEE</option>
+            <option value="LIGHT BITE SNACKS">LIGHT BITE SNACKS</option>
+            <option value="NINETY-NINERS">NINETY-NINERS</option>
+            <option value="ADD-ONS">ADD-ONS</option>
+          </select>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="item-variation">Variation (e.g. Hot, Iced)</label>
+            <input type="text" id="item-variation">
+          </div>
+          <div class="form-group">
+            <label for="item-size">Size (e.g. 16oz, 22oz)</label>
+            <input type="text" id="item-size" placeholder="16oz">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="item-addons">Add-ons</label>
+          <select id="item-addons" multiple>
+            <!-- Dynamically populated from ADD-ONS category -->
+          </select>
+          <small>Hold Ctrl/Cmd to select multiple</small>
+        </div>
+        <div class="form-group">
+          <label for="item-image">Photo (JPEG, PNG)</label>
+          <input type="file" id="item-image" accept="image/jpeg, image/png">
+          <div id="image-preview" class="image-preview"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Item</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

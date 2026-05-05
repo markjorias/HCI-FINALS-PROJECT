@@ -56,6 +56,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Handle option button selection (Variation, Size, Add-ons)
+  const optionButtons = document.querySelectorAll('.option-btn');
+  optionButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const section = button.closest('div');
+      if (section) {
+        section.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+      }
+    });
+  });
+
   // Quantity Buttons Logic
   const qtyControls = document.querySelectorAll('.quantity-controls');
   qtyControls.forEach(control => {

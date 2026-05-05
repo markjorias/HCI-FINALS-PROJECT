@@ -57,7 +57,7 @@
   border-color: var(--primary-color);
 }
 
-.addons-section, .quantity-section {
+.size-section, .addons-section, .quantity-section {
   margin-top: 30px;
 }
 
