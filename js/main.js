@@ -65,15 +65,21 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.className = 'tab' + (index === 0 ? ' active' : '');
       tab.textContent = item.name.toUpperCase();
       
-      tab.addEventListener('click', () => {
+      const updateTab = () => {
+        if (tab.classList.contains('active')) return;
         section.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
         
-        // Update Image and Text
+        // Update Image with animation
+        imageElement.classList.remove('fade-in');
+        void imageElement.offsetWidth; // Force reflow
         imageElement.src = item.image_url || 'https://via.placeholder.com/500';
         imageElement.alt = item.name;
-        // Optionally update title/desc if desired, but request specifically mentioned image
-      });
+        imageElement.classList.add('fade-in');
+      };
+
+      tab.addEventListener('click', updateTab);
+      tab.addEventListener('mouseenter', updateTab);
 
       tabContainer.appendChild(tab);
     });

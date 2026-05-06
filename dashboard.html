@@ -63,7 +63,25 @@
       <div class="dashboard-content-wrapper">
         <!-- Menu Management Section -->
         <section id="menu-management" class="content-section active">
-        <div class="table-container">
+          <div class="menu-filters">
+            <div class="search-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="menu-search" placeholder="Search by name...">
+            </div>
+            <div class="filter-box">
+              <label for="menu-category-filter">Category:</label>
+              <select id="menu-category-filter">
+                <option value="all">All Categories</option>
+                <option value="ICE COFFEE">ICE COFFEE</option>
+                <option value="HOT DRINKS">HOT DRINKS</option>
+                <option value="NON COFFEE">NON COFFEE</option>
+                <option value="LIGHT BITE SNACKS">LIGHT BITE SNACKS</option>
+                <option value="NINETY-NINERS">NINETY-NINERS</option>
+                <option value="ADD-ONS">ADD-ONS</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-container">
           <table class="admin-table">
             <thead>
               <tr>
@@ -247,8 +265,8 @@
           <small>Hold Ctrl/Cmd to select multiple</small>
         </div>
         <div class="form-group">
-          <label for="item-image">Photo (JPEG, PNG)</label>
-          <input type="file" id="item-image" accept="image/jpeg, image/png">
+          <label for="item-image">Photo (JPEG, PNG, GIF)</label>
+          <input type="file" id="item-image" accept="image/jpeg, image/png, image/gif">
           <div id="image-preview" class="image-preview"></div>
         </div>
         <button type="submit" class="btn btn-primary">Save Item</button>

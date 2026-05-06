@@ -352,41 +352,64 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Data Management ---
+  let allMenuItems = [];
+  const menuSearch = document.getElementById('menu-search');
+  const menuCategoryFilter = document.getElementById('menu-category-filter');
+
   async function renderMenu() {
     try {
       const response = await fetch('/api/menu');
-      const menuItems = await response.json();
-      const tableBody = document.getElementById('menu-items-table');
-      tableBody.innerHTML = '';
-
-      menuItems.forEach(item => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td class="col-img"><img src="${item.image_url || 'https://via.placeholder.com/50'}" alt="${item.name}"></td>
-          <td>${item.name}</td>
-          <td class="col-desc">${item.description || ''}</td>
-          <td>PHP ${item.price.toFixed(2)}</td>
-          <td>${item.category}</td>
-          <td class="col-actions">
-            <button class="edit-btn" data-id="${item.id}">Edit</button>
-            <button class="delete-btn" data-id="${item.id}">Delete</button>
-          </td>
-        `;
-        tableBody.appendChild(row);
-      });
-
-      // Add event listeners to buttons
-      tableBody.querySelectorAll('.edit-btn').forEach(btn => {
-        btn.addEventListener('click', () => editItem(parseInt(btn.dataset.id)));
-      });
-      tableBody.querySelectorAll('.delete-btn').forEach(btn => {
-        btn.addEventListener('click', () => deleteItem(parseInt(btn.dataset.id)));
-      });
-
+      allMenuItems = await response.json();
+      filterMenu(); // Initial display
     } catch (err) {
       console.error('Error rendering menu:', err);
     }
   }
+
+  function filterMenu() {
+    const searchTerm = menuSearch.value.toLowerCase();
+    const categoryFilter = menuCategoryFilter.value;
+
+    const filteredItems = allMenuItems.filter(item => {
+      const matchesSearch = item.name.toLowerCase().includes(searchTerm);
+      const matchesCategory = categoryFilter === 'all' || item.category === categoryFilter;
+      return matchesSearch && matchesCategory;
+    });
+
+    displayMenu(filteredItems);
+  }
+
+  function displayMenu(items) {
+    const tableBody = document.getElementById('menu-items-table');
+    tableBody.innerHTML = '';
+
+    items.forEach(item => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="col-img"><img src="${item.image_url || 'https://via.placeholder.com/50'}" alt="${item.name}"></td>
+        <td>${item.name}</td>
+        <td class="col-desc">${item.description || ''}</td>
+        <td>PHP ${item.price.toFixed(2)}</td>
+        <td>${item.category}</td>
+        <td class="col-actions">
+          <button class="edit-btn" data-id="${item.id}">Edit</button>
+          <button class="delete-btn" data-id="${item.id}">Delete</button>
+        </td>
+      `;
+      tableBody.appendChild(row);
+    });
+
+    // Add event listeners to buttons
+    tableBody.querySelectorAll('.edit-btn').forEach(btn => {
+      btn.addEventListener('click', () => editItem(parseInt(btn.dataset.id)));
+    });
+    tableBody.querySelectorAll('.delete-btn').forEach(btn => {
+      btn.addEventListener('click', () => deleteItem(parseInt(btn.dataset.id)));
+    });
+  }
+
+  menuSearch.addEventListener('input', filterMenu);
+  menuCategoryFilter.addEventListener('change', filterMenu);
 
   async function editItem(id) {
     try {

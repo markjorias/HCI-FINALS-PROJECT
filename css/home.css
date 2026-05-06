@@ -17,9 +17,10 @@
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
+  transition: color var(--transition-fast);
 }
 
-.tab.active {
+.tab:hover, .tab.active {
   color: var(--primary-color);
 }
 
@@ -34,6 +35,16 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.bestseller-image img.fade-in {
+  animation: fadeInImage 0.4s ease-out forwards;
+}
+
+@keyframes fadeInImage {
+  from { opacity: 0.3; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 /* More to try section */
@@ -126,12 +137,17 @@
   justify-content: center;
   color: var(--dark-bg);
   flex-shrink: 0;
+  transition: all var(--transition-fast);
+  cursor: pointer;
 }
 
-.add-btn img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
+.add-btn:hover, .add-btn:active {
+  background-color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.add-btn:hover img, .add-btn:active img {
+  filter: brightness(0) invert(1);
 }
 
 /* Atmosphere Section */
