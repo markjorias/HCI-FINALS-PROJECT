@@ -9,9 +9,9 @@ const port = 3000;
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, '../public')));
 
-const db = new sqlite3.Database('./coffee_shop.db');
+const db = new sqlite3.Database(path.join(__dirname, '../coffee_shop.db'));
 
 app.get('/api/menu', (req, res) => {
   const category = req.query.category;
