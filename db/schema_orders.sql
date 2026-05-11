@@ -10,6 +10,9 @@ CREATE TABLE IF NOT EXISTS orders (
     user_id INTEGER REFERENCES users(id) ON DELETE SET NULL
 );
 
+-- Safely add user_id to orders tables created before this column was introduced
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS user_id INTEGER REFERENCES users(id) ON DELETE SET NULL;
+
 CREATE TABLE IF NOT EXISTS order_items (
     id SERIAL PRIMARY KEY,
     order_id TEXT,
