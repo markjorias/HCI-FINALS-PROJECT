@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [2026-05-12] - Security & Backend Modularization
 
 ### Added
+- `[markjorias]` - Added `DB_NAME` environment variable to Bicep template for explicit database targeting.
 - `[markjorias]` - Created required `/diagram` and `/report` directories to align with project structure requirements.
 - `[markjorias]` - Integrated `dotenv` for secure environment variable management.
 - `[markjorias]` - Created a centralized `.env.sample` in the project root for streamlined configuration.

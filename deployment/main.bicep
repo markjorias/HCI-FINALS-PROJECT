@@ -180,6 +180,10 @@ resource appService 'Microsoft.Web/sites@2022-09-01' = {
           value: dbAdminUsername
         }
         {
+          name: 'DB_NAME'
+          value: 'postgres'
+        }
+        {
           // Key Vault Reference! The App Service fetches this automatically at runtime.
           name: 'DB_PASS'
           value: '@Microsoft.KeyVault(VaultName=${keyVault.name};SecretName=${dbPasswordSecret.name})'
