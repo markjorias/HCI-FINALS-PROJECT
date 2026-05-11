@@ -30,6 +30,8 @@ All notable changes to this project will be documented in this file.
 - `[markjorias]` - Fixed missing `role` column in `db/schema_users.sql`; added `role TEXT DEFAULT 'user'` to `CREATE TABLE users` to match seed data.
 - `[markjorias]` - Fixed missing `item_price` column in `db/schema_users.sql`; added `item_price REAL` to `CREATE TABLE cart_items` to match seed data.
 - `[markjorias]` - Removed stale `ALTER TABLE orders ADD COLUMN user_id` from `db/schema_users.sql`; column is now defined directly in `schema_orders.sql`.
+- `[markjorias]` - Fixed duplicate key errors on re-run by rewriting `db/seed_data.sql` with `ON CONFLICT DO NOTHING` on all INSERT statements.
+- `[markjorias]` - Removed example INSERT rows from `db/schema_orders.sql`; seed data now lives exclusively in `seed_data.sql`.
 
 ## [2026-05-11] - Cloud Architecture Optimization
 

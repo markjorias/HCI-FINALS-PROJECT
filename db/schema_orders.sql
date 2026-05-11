@@ -19,9 +19,3 @@ CREATE TABLE IF NOT EXISTS order_items (
     FOREIGN KEY (item_id) REFERENCES menu_items(id)
 );
 
--- Example data seed
-INSERT INTO orders (id, customer_name, total_price, status) 
-VALUES ('ORD-001', 'John Doe', 350.00, 'Received');
-
-INSERT INTO order_items (order_id, item_id, quantity) 
-VALUES ('ORD-001', 1, 2);
