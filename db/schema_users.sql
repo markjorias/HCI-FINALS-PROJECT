@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
     last_name TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
     password TEXT NOT NULL, -- In a real app, this should be hashed
+    role TEXT DEFAULT 'user',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -24,13 +25,9 @@ CREATE TABLE IF NOT EXISTS cart_items (
     quantity INTEGER NOT NULL DEFAULT 1,
     variation TEXT,
     size TEXT,
+    item_price REAL,
     added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (cart_id) REFERENCES carts(id) ON DELETE CASCADE,
     FOREIGN KEY (menu_item_id) REFERENCES menu_items(id) ON DELETE CASCADE
 );
 
--- Add user_id to orders if it doesn't exist
--- SQLite doesn't support IF NOT EXISTS for ADD COLUMN directly, 
--- but we can handle this gracefully in server.js or by recreating the table if needed.
--- For now, we'll try to add it.
-ALTER TABLE orders ADD COLUMN user_id INTEGER;

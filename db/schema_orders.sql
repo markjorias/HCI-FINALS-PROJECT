@@ -6,7 +6,8 @@ CREATE TABLE IF NOT EXISTS orders (
     customer_name TEXT NOT NULL,
     total_price REAL NOT NULL,
     status TEXT CHECK(status IN ('Received', 'Confirmed', 'Preparing', 'Ready', 'Completed')) DEFAULT 'Received',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    user_id INTEGER REFERENCES users(id) ON DELETE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS order_items (

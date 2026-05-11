@@ -26,6 +26,10 @@ All notable changes to this project will be documented in this file.
 - `[markjorias]` - Fixed ReferenceError in `db/init_db.js` caused by uninitialized `path` module.
 - `[markjorias]` - Fixed PostgreSQL incompatible `INSERT OR IGNORE` syntax in `db/schema_menu.sql`; replaced with `ON CONFLICT DO NOTHING`.
 - `[markjorias]` - Fixed schema initialization order in `db/init_db.js`; `schema_menu.sql` must run before `schema_users.sql` due to foreign key dependency on `menu_items`.
+- `[markjorias]` - Fixed missing `user_id` FK column in `db/schema_orders.sql`; added `user_id INTEGER REFERENCES users(id)` to `CREATE TABLE orders`.
+- `[markjorias]` - Fixed missing `role` column in `db/schema_users.sql`; added `role TEXT DEFAULT 'user'` to `CREATE TABLE users` to match seed data.
+- `[markjorias]` - Fixed missing `item_price` column in `db/schema_users.sql`; added `item_price REAL` to `CREATE TABLE cart_items` to match seed data.
+- `[markjorias]` - Removed stale `ALTER TABLE orders ADD COLUMN user_id` from `db/schema_users.sql`; column is now defined directly in `schema_orders.sql`.
 
 ## [2026-05-11] - Cloud Architecture Optimization
 
