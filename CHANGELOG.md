@@ -21,6 +21,12 @@ All notable changes to this project will be documented in this file.
 - `[markjorias]` - Removed hardcoded database credentials and fallbacks from `src/server.js` and `db/init_db.js`.
 - `[markjorias]` - Removed redundant `.env.sample` from the `deployment/` folder.
 
+### Fixed
+- `[markjorias]` - Fixed Express 5.x routing crash in `src/server.js` by updating wildcard fallback to regex.
+- `[markjorias]` - Fixed ReferenceError in `db/init_db.js` caused by uninitialized `path` module.
+- `[markjorias]` - Fixed PostgreSQL incompatible `INSERT OR IGNORE` syntax in `db/schema_menu.sql`; replaced with `ON CONFLICT DO NOTHING`.
+- `[markjorias]` - Fixed schema initialization order in `db/init_db.js`; `schema_menu.sql` must run before `schema_users.sql` due to foreign key dependency on `menu_items`.
+
 ## [2026-05-11] - Cloud Architecture Optimization
 
 ### Added

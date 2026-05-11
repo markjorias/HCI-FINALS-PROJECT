@@ -21,9 +21,9 @@ CREATE TABLE IF NOT EXISTS featured_items (
 );
 
 -- Initial featured items
-INSERT OR IGNORE INTO featured_items (section, item_ids) VALUES ('bestseller', '[]');
-INSERT OR IGNORE INTO featured_items (section, item_ids) VALUES ('snacks', '[]');
-INSERT OR IGNORE INTO featured_items (section, item_ids) VALUES ('more_to_try', '[]');
+INSERT INTO featured_items (section, item_ids) VALUES ('bestseller', '[]') ON CONFLICT DO NOTHING;
+INSERT INTO featured_items (section, item_ids) VALUES ('snacks', '[]') ON CONFLICT DO NOTHING;
+INSERT INTO featured_items (section, item_ids) VALUES ('more_to_try', '[]') ON CONFLICT DO NOTHING;
 
 -- Initial data seed
 INSERT INTO menu_items (name, description, price, category, image_url) 

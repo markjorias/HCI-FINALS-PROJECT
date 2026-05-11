@@ -31,8 +31,8 @@ async function init() {
     console.log('Connecting to database...');
     await client.connect();
     console.log('Initializing Database...');
-    await runSqlFile('schema_users.sql'); 
     await runSqlFile('schema_menu.sql');
+    await runSqlFile('schema_users.sql');
     await runSqlFile('schema_orders.sql');
     if (fs.existsSync(path.join(__dirname, 'schema_feedback.sql'))) {
       await runSqlFile('schema_feedback.sql');
