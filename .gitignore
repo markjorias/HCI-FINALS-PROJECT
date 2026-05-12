@@ -21,6 +21,7 @@ instruction*.md
 .azure/
 *.arm.json
 *.bicep.json
+deployment/main.json
 
 # Logs
 npm-debug.log*
@@ -39,7 +40,13 @@ yarn-error.log*
 Thumbs.db
 
 # Misc Project Files
-project*.md
-tutorial_arch_linux*.md
-tutorial*.md
-deployment/README*.md
+project.md
+deployment/REDEPLOY.md
+
+# Deployment Artifacts
+*.zip
+deploy.zip
+
+# Temporary Reports & Exports
+report/ExportedEstimate.csv
+report/ExportedEstimate.xlsx

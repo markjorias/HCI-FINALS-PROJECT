@@ -1,176 +1,135 @@
-# Fullshot — Halfshot Website Redesign
-
-> **CS 3215 – Human Computer Interaction | 25-2 Final Project (UX/UI Design)**
-
-A full-stack web application representing the complete UX/UI redesign of the **Halfshot** coffee shop website. This project was developed as the final deliverable for CS 3215 – Human Computer Interaction, focusing on applying user-centered design principles to create a modern, intuitive, and visually engaging digital ordering experience. The redesign improves upon the original Halfshot website by addressing usability gaps, enhancing visual hierarchy, streamlining the customer journey from menu discovery to order completion, and introducing a responsive layout that works seamlessly across all devices.
-
-Built with **Node.js**, **Express**, and **SQLite3**.
-
----
-
-## Table of Contents
-
-1. [Live Deployment](#live-deployment)
-2. [Project Overview](#project-overview)
-3. [Features](#features)
-4. [Tech Stack](#tech-stack)
-5. [Local Setup and Installation](#local-setup-and-installation)
-   - [Prerequisites](#prerequisites)
-   - [Installation](#installation)
-   - [Running the Application](#running-the-application)
-6. [Test Accounts](#test-accounts)
-7. [Team Members](#team-members)
-
----
-
-## Live Deployment
-
-The application is deployed and publicly accessible at:
-
-🔗 [http://fullshot.eastasia.cloudapp.azure.com/](http://fullshot.eastasia.cloudapp.azure.com/)
-
----
+# Fullshot — Cloud-Native E-Commerce Platform
+**CSEC 3 – Cloud Computing (Microsoft Azure) | Final Project**
 
 ## Project Overview
+Fullshot is a modern e-commerce platform developed as a cloud-native redesign of a traditional coffee shop web application. This project demonstrates the successful migration and optimization of a full-stack application to Microsoft Azure, fulfilling the requirements for Scenario B (E-Commerce Storefront). The platform delivers a complete digital ordering experience—featuring a dynamic product catalog, secure shopping cart functionality, and a robust administrative dashboard—all engineered for high availability, security, and scalability using managed Azure services.
 
-This project is a **redesign of the Halfshot coffee shop website**, created as part of the CS 3215 – Human Computer Interaction course (Academic Year 25-2). The primary goal was to apply HCI principles and UX/UI best practices to reimagine the digital presence of Halfshot — a local coffee shop brand.
-
-The redesign emphasizes:
-- **Usability** — Simplified navigation and intuitive user flows for browsing and ordering.
-- **Aesthetics** — A clean, modern visual identity consistent with Halfshot's branding.
-- **Accessibility** — Thoughtful layout and contrast choices to improve readability and inclusivity.
-- **Responsiveness** — A mobile-friendly design that adapts gracefully across screen sizes.
-
----
-
-## Features
-
-- User Registration and Login
-- Menu Browsing with Category Filtering
-- Shopping Cart Functionality
-- Order Placement and Order History Tracking
-- User Dashboard
-- Admin Dashboard with Full Access Controls
+## Table of Contents
+1. [Final Project Deliverables](#final-project-deliverables)
+2. [Cloud Architecture and Optimizations](#cloud-architecture-and-optimizations)
+3. [Repository Structure](#repository-structure)
+4. [Technical Stack](#technical-stack)
+5. [Project Team](#project-team)
+6. [Testing Credentials](#testing-credentials)
 
 ---
 
-## Tech Stack
+## Final Project Deliverables
 
-| Layer      | Technology                        |
-|------------|-----------------------------------|
-| Frontend   | HTML, CSS, JavaScript (Vanilla)   |
-| Backend    | Node.js, Express                  |
-| Database   | SQLite3                           |
+### Deliverable 1: Architecture Diagram
+Access the professional Azure architecture diagram in the [diagram](./diagram/) directory. This documentation details the baseline design, security boundaries, and implemented cloud optimizations.
 
----
+### Deliverable 2: Deployment Documentation
+Comprehensive setup and Infrastructure as Code (IaC) guides are located in the [deployment](./deployment/) directory. 
 
-## Local Setup and Installation
+#### Quick Start Deployment Guide
+**Prerequisites**
+* Azure CLI installed and configured.
+* Active Azure for Students subscription.
+* Registration of the Alerts provider: `az provider register --namespace Microsoft.AlertsManagement`.
 
-Follow these steps to get the project running on your local machine.
-
-### Prerequisites
-
-This project requires **Node.js (v14 or higher)**. Install it for your operating system:
-
-**Windows:**
-1. Download the Windows Installer (`.msi`) from the [official Node.js website](https://nodejs.org/).
-2. Run the installer and follow the prompts (LTS version recommended).
-3. Restart your terminal or command prompt.
-
-**macOS:**
-1. Download the macOS Installer (`.pkg`) from the [official Node.js website](https://nodejs.org/).
-2. Run the installer and follow the prompts.
-3. Alternatively, with [Homebrew](https://brew.sh/) installed, run:
+**Deployment Execution**
+1. **Authentication and Script Execution**
    ```bash
-   brew install node
+   az login
+   cd deployment
+   bash deploy.azcli
    ```
-
-**Linux (Ubuntu/Debian):**
-1. Update your package index:
-   ```bash
-   sudo apt update
-   ```
-2. Install Node.js and npm:
-   ```bash
-   sudo apt install nodejs npm
-   ```
-
-**Verify Installation:**
-```bash
-node -v
-npm -v
-```
-
----
-
-### Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/markjorias/HCI-FINALS-PROJECT.git
-   cd Fullshot\(html\)
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Initialize the database:**
-   This project uses SQLite. Run the initialization script to set up the tables and seed initial data:
+2. **Source Code Synchronization**
+   Connect the GitHub repository to the App Service instance via the **Deployment Center** in the Azure Portal.
+3. **Database Initialization**
+   Access the Azure Portal SSH Terminal and execute:
    ```bash
    node db/init_db.js
    ```
+For full instructions and troubleshooting, see the [Detailed Deployment Guide](./deployment/DEPLOYMENT.md).
+
+### Deliverable 3: Cost Estimate Report
+The following itemized monthly cost estimate is based on the East Asia (Hong Kong) region.
+
+| Azure Service | Configuration Details | Estimated Monthly Cost |
+| :--- | :--- | :--- |
+| **App Service Plan** | S1 Tier (Linux), 1 Instance Baseline | $69.35 |
+| **PostgreSQL Flexible Server** | Burstable B1ms (1 vCore, 2GB RAM) + 32GB Premium SSD | $25.68 |
+| **Azure Monitor** | Application Insights + Log Analytics (Free Tier) | $0.00 |
+| **Bandwidth** | 5 GB Egress (Free Tier) | $0.00 |
+| **Total Estimated Cost** | | **$95.03 / Month** |
+
+For the complete analysis and cost optimization strategies, view the [Full Cost Estimate Report](./report/cost-estimate.md).
+
+### Deliverable 4: Live Demo and Video Presentation
+* **Live Application URL:** [https://fullshot-app.azurewebsites.net/](https://fullshot-app.azurewebsites.net/)
+* **Video Presentation:** [YouTube Unlisted Link Placeholder](https://youtube.com/)
 
 ---
 
-### Running the Application
+## Cloud Architecture and Optimizations
+This implementation follows Scenario B (E-Commerce Storefront), prioritizing high availability, security, and scalability.
 
-1. **Start the development server:**
-   ```bash
-   npm start
-   ```
+### Azure Service Stack
+| Service | Function |
+| :--- | :--- |
+| **App Service Plan (S1)** | Core compute farm supporting Linux containers. |
+| **App Service** | High-performance Node.js hosting environment. |
+| **Database for PostgreSQL** | Managed relational database (Flexible Server). |
+| **Key Vault** | Secure storage for sensitive credentials and secrets. |
+| **Application Insights** | Telemetry, error tracking, and performance monitoring. |
+| **Autoscale Settings** | Rule-based scaling for fault tolerance. |
 
-2. **Open in your browser:**
-   Navigate to `http://localhost:3000`
-
----
-
-## Test Accounts
-
-Use the following credentials to explore and test the application's features:
-
-### Admin Account
-> Full access to the Admin Dashboard and management controls.
-
-| Field    | Value                |
-|----------|----------------------|
-| Email    | admin@halfshot.com   |
-| Password | adminpassword123     |
-| Role     | Admin                |
-
-### Standard User Account
-> Regular customer access for browsing, cart, and ordering.
-
-| Field    | Value              |
-|----------|--------------------|
-| Email    | test@example.com   |
-| Password | testpassword123    |
-| Role     | User               |
+### Implemented Cloud Optimizations
+*   **Scalability (Autoscale Rules)**: Configured the App Service Plan (Standard S1) with autoscale settings to dynamically adjust capacity between 1 and 3 instances. Scaling is triggered by CPU utilization thresholds (>70% for scale-out, <30% for scale-in), ensuring the platform remains responsive during traffic spikes while optimizing costs during idle periods.
+*   **Security and DevOps (Managed Identity & Key Vault)**: Implemented a secure, passwordless architecture using **System-Assigned Managed Identity**. The App Service authenticates directly with **Azure Key Vault** to retrieve database credentials at runtime, eliminating the need for hardcoded secrets in the source code or environment variables.
+*   **Monitoring and Operations (Application Insights)**: Integrated **Azure Application Insights** and a **Log Analytics Workspace** to provide full-stack observability. This includes real-time telemetry, error tracking, and performance monitoring, enabling proactive identification and resolution of system bottlenecks.
+*   **CI/CD Automation (Continuous Deployment)**: Configured the **Azure Deployment Center** to integrate with this GitHub repository. This enables a Continuous Deployment pipeline where every push to the `main` branch automatically triggers a build and deployment, ensuring rapid and reliable delivery of updates.
 
 ---
 
-## Team Members
+## Repository Structure
 
-This project was developed by:
+```text
+Fullshot(Azure)/
+├── db/                 # Database initialization and SQL schema files
+├── deployment/         # Infrastructure as Code (Bicep) and CLI scripts
+├── diagram/            # Architecture diagrams and design documentation
+├── public/             # Frontend assets (HTML, CSS, JS, Images)
+├── report/             # Project reports and cost estimation
+├── src/                # Backend source code (Express API, Routes, Config)
+├── .env.sample         # Template for environment variables
+├── CHANGELOG.md        # Chronological log of project updates
+└── README.md           # Project overview and documentation
+```
 
-| Name                      |
-|---------------------------|
-| AGNOTE, Rovilyn A.        |
-| ATIENZA, Lawrence         |
-| LAVAPIE, Ven John Rey C.  |
-| ORIAS, Mark Joseph C.     |
+### Directory Descriptions
+* **`db/`**: Contains Node.js scripts to initialize the PostgreSQL database and SQL files defining the schema and seed data.
+* **`deployment/`**: Houses Bicep templates for automated infrastructure provisioning and Azure CLI scripts for deployment automation.
+* **`diagram/`**: Reserved for professional architecture diagrams as required for Deliverable 1.
+* **`public/`**: The web root containing the static frontend, including HTML pages, CSS stylesheets, and client-side JavaScript.
+* **`report/`**: Contains the cost estimate report (Deliverable 3) and supporting pricing exports.
+* **`src/`**: The core backend application code, modularized into API routes, database configuration, and the main server entry point.
 
 ---
 
-*CS 3215 – Human Computer Interaction | Academic Year 25-2 | Halfshot Website Redesign*
+## Technical Stack
+| Component | Technology |
+| :--- | :--- |
+| **Frontend** | HTML5, CSS3, Vanilla JavaScript |
+| **Backend** | Node.js, Express |
+| **Database** | Azure Database for PostgreSQL (Flexible Server) |
+| **Infrastructure** | Bicep (IaC), Azure CLI |
+
+---
+
+## Project Team
+| Member Name |
+| :--- |
+| AQUINO, Sean Xander |
+| ATIENZA, Lawrence |
+| ORIAS, Mark Joseph C. |
+
+---
+
+## Testing Credentials
+| Account Role | Email Address | Password |
+| :--- | :--- | :--- |
+| **Administrator** | `admin@halfshot.com` | `adminpassword123` |
+| **Standard User** | `test@example.com` | `testpassword123` |

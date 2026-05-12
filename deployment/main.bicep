@@ -2,6 +2,7 @@
 param location string = resourceGroup().location
 
 @description('The base name for resources')
+@minLength(3)
 param baseName string = 'fullshot${uniqueString(resourceGroup().id)}'
 
 @description('The administrator username for the PostgreSQL server.')
@@ -196,7 +197,7 @@ resource appService 'Microsoft.Web/sites@2022-09-01' = {
 // 7. Role Assignment (Allows App Service Managed Identity to read Key Vault secrets)
 var keyVaultSecretsUserRoleDefinitionId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '4633458b-17de-408a-b874-0445c86b69e6')
 
-resource kvRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01-preview' = {
+resource kvRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(keyVault.id, appService.id, keyVaultSecretsUserRoleDefinitionId)
   scope: keyVault
   properties: {
