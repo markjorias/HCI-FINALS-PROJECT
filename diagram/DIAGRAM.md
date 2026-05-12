@@ -33,7 +33,7 @@ All application resources are provisioned within a single Azure Resource Group i
 The primary compute layer of the platform. The backend application runs on **Node.js with Express 5**, served through `src/server.js` and modularized API routes in `src/routes/`. The App Service is hosted at:
 
 ```
-fullshot.eastasia.cloudapp.azure.com
+https://fullshotixnofupbqwjp2-app.azurewebsites.net/
 ```
 
 **Key features:**
