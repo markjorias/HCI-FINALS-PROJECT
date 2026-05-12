@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [2026-05-12] - Deployment Documentation & Environment Finalization
 
 ### Added
-- `[ale-xanderr]` - Created the comprehensive deployment guide in `deployment/README.md`, covering Node.js/NPM installation and local environment prerequisites.
+- `[ale-xanderr]` - Created the comprehensive deployment guide in `deployment/DEPLOYMENT.md`, covering Node.js/NPM installation and local environment prerequisites.
 - `[ale-xanderr]` - Documented the "Zero-Secret" security architecture, specifically detailing the Managed Identity and Key Vault RBAC flow.
 - `[ale-xanderr]` - Added a "Post-Deployment Verification" checklist to ensure successful database initialization and autoscale validation.
 
