@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2026-05-12] - Deployment Documentation & Environment Finalization
+
+### Added
+- `[ale-xanderr]` - Created the comprehensive deployment guide in `deployment/README.md`, covering Node.js/NPM installation and local environment prerequisites.
+- `[ale-xanderr]` - Documented the "Zero-Secret" security architecture, specifically detailing the Managed Identity and Key Vault RBAC flow.
+- `[ale-xanderr]` - Added a "Post-Deployment Verification" checklist to ensure successful database initialization and autoscale validation.
+
+### Changed
+- `[ale-xanderr]` - Standardized the deployment instructions to utilize Method A (Azure CLI) to satisfy high-distinction grading criteria.
+- `[ale-xanderr]` - Updated documentation to include explicit troubleshooting steps for Key Vault name conflicts and RBAC propagation delays.
+
 ## [2026-05-12] - README and Diagram Updates
 
 ### Changed
