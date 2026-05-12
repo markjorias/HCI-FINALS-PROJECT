@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2026-05-12] - README and Diagram Updates
+
+### Changed
+- `[lawrence]` - Updated `README.md` Deliverable 1 section to embed the architecture diagram image directly and added a link to the full diagram discussion in `DIAGRAM.md`.
+- `[lawrence]` - Updated live application URL in `README.md` to `https://fullshotixnofupbqwjp2-app.azurewebsites.net/`.
+
 ## [2026-05-12] - Architecture Diagram & Documentation
 
 ### Added
