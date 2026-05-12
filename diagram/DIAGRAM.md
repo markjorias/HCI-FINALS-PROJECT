@@ -4,7 +4,7 @@
 
 This document describes the cloud architecture of **Fullshot**, a cloud-native e-commerce platform deployed on Microsoft Azure under the East Asia (Hong Kong) region. The architecture is designed around three core principles: **security**, **scalability**, and **high availability**, following the requirements of Scenario B (E-Commerce Storefront).
 
-The diagram is available as `ArchitectureDiagram.drawio` and can be opened using [draw.io](https://app.diagrams.net/).
+The diagram is available as `ArchitectureDiagram.png` and can be opened using [draw.io](https://app.diagrams.net/).
 
 ---
 
@@ -120,7 +120,7 @@ A Node.js script that connects to the provisioned PostgreSQL instance and runs t
 The architecture diagram is located at:
 
 ```
-diagram/ArchitectureDiagram.drawio
+diagram/ArchitectureDiagram.png
 ```
 
 Open with [draw.io](https://app.diagrams.net/) (File → Import from Device) or directly via the [draw.io VS Code extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio).
