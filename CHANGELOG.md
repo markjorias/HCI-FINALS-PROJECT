@@ -2,10 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2026-05-12] - Architecture Diagram
+## [2026-05-12] - Architecture Diagram & Documentation
 
 ### Added
-- `[lawrence]` - Added `diagram/ArchitectureDiagram.drawio` — professional Azure architecture diagram for Deliverable 1, illustrating the cloud infrastructure, security boundaries, service connections, and deployment pipeline.
+- `[lawrence]` - Added `diagram/ArchitectureDiagram.drawio` — draw.io architecture diagram for Deliverable 1.
+- `[lawrence]` - Added `diagram/DIAGRAM.md` — full documentation of the Azure cloud architecture, covering all services, security boundaries, service connections, deployment pipeline, and cloud optimizations.
 
 ## [2026-05-12] - Security, Backend Modularization & Reporting
 
